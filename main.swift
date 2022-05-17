@@ -92,3 +92,80 @@ print("==========================================")
 let houseAnimals:Set = ["🐶", "😹"]
 let farmAnimals:Set = ["🐮", "🐔", "🐑", "🐶", "😹"]
 let cityAnimals:Set = ["🐁", "🕊"]
+
+
+//animales de casa es un subconjunto de animales de granja
+print(houseAnimals.isSubset(of: farmAnimals))
+//de granja es un superconjunto de casa
+print(farmAnimals.isDisjoint(with: cityAnimals))
+print("==========================================")
+
+
+// Diccionarios [k1:v1, k2:v2, ....]
+//declarar
+var namesOfIntegers = [Int : String]()
+//agregar elemento
+namesOfIntegers[15] = "quince"
+//vaciar diccionario 
+namesOfIntegers = [:]
+
+
+var airports: [String: String] = ["YYZ": "Toronto",
+                                  "DUB": "Dublin",
+                                  "PMI": "Palma de Mallorca"]
+print(airports.count
+)
+print(airports.isEmpty)
+//agregar itens a diccionario
+airports["LHR"] = "London"
+//modificar
+airports["LHR"] = "London Heathrow"
+
+
+print(airports)
+print("==========================================")
+
+
+if let oldValue = airports.updateValue("Dublin Airport", forKey: "DUB"){
+    print("El aeropuerto tenia antiguamente el nombre de \(oldValue)")
+}
+print("==========================================")
+
+print(airports)
+
+if let airportName = airports["DUB"]{
+    print("El aeropuerto de DUB es: \(airportName)")
+}
+//elimianr
+
+airports["PMI"] = nil
+print(airports)
+
+if let removedAirport = airports.removeValue(forKey: "DUB"){
+    //usar la variable removed airport
+}
+print("==========================================")
+
+print(airports)
+print("==========================================")
+
+//iterar con claves y valor
+for (key, value) in airports {
+    print("\(key) - \(value)")
+}
+print("==========================================")
+//solo las claves
+for airportKey in airports.keys{
+    print(airportKey)
+}
+//solo valores
+for airportName in airports.values{
+    print(airportName)
+}
+print("==========================================")
+//crear arrays de diccioanrios
+let airportKeys = [String](airports.keys.sorted())
+let airportNames = [String](airports.values.sorted())
+
+print (airportKeys)
+print (airportNames)
